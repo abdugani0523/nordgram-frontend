@@ -1,4 +1,4 @@
-const url = 'http://localhost:4500'
+const url = 'https://nordgram-backend.herokuapp.com'
 let userId = sessionStorage.getItem('userId')
 const conversation = document.querySelector('.conversation')
 const conversationM = document.querySelector('#conversation')

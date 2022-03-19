@@ -1,4 +1,4 @@
-const url = 'http://192.168.100.5:4500'
+const url = 'https://nordgram-backend.herokuapp.com'
 window.addEventListener('DOMContentLoaded', () => {
     const userId = sessionStorage.getItem('userId')
     if (userId) return (location.href = '/home')

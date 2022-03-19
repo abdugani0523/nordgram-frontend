@@ -1,0 +1,30 @@
+{
+    "name": "chat-app-frontend",
+    "version": "0.0.1",
+    "description": "Frontend for chat application ",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "test": "npx nodemon server.js",
+        "format": "npx prettier --config .prettierrc --write ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/abdugani0523/chat-app-frontend.git"
+    },
+    "keywords": [
+        "frontend",
+        "chat",
+        "app"
+    ],
+    "author": "Abdug'ani Toshmuhammedov",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/abdugani0523/chat-app-frontend/issues"
+    },
+    "homepage": "https://github.com/abdugani0523/chat-app-frontend#readme",
+    "devDependencies": {
+        "nodemon": "^2.0.15",
+        "prettier": "^2.6.0"
+    }
+}

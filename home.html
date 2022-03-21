@@ -102,6 +102,12 @@
 
                 <div class="col-sm-8 conversation" style="display: none">
                     <div class="row heading">
+                        <div class="col-sm-1 col-xs-1 reply-send" id="back">
+                            <i
+                                class="fa-regular fa-arrow-left fa-2x"
+                                aria-hidden="true"
+                            ></i>
+                        </div>
                         <div class="col-sm-2 col-md-1 col-xs-3 heading-avatar">
                             <div class="heading-avatar-icon">
                                 <img src="#" />
@@ -168,6 +174,27 @@
                         left: '-100%',
                     })
                 })
+                $(document).on("click", ".sideBar-body", function () {
+                    if($(window).width() <= 700) {
+                        $('.side').css({
+                            display: 'none',
+                        })
+                    }
+                })
+                $("#back").on("click", function () {
+                    $('.side').css({
+                        display: 'block',
+                    })
+                })
+                if($(window).width() <= 700){
+                    $('#back').css({
+                        display: 'block',
+                    })
+                } else {
+                    $('#back').css({
+                        display: 'none',
+                    })
+                }   
             })
         </script>
         <script src="./js/home.js"></script>

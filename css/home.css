@@ -580,6 +580,9 @@ body {
         padding: 5px 2px 5px 0 !important;
         font-size: 1.8em !important;
     }
+    #back {
+        display: block;
+    }
 }
 
 #searchText,

@@ -9,7 +9,7 @@ const clearChat = document.querySelector('.fa-broom')
 let allUsers
 let chats
 let response
-let messagesLength;
+let messagesLength
 
 window.addEventListener('DOMContentLoaded', async () => {
     // check
@@ -67,11 +67,10 @@ window.addEventListener('DOMContentLoaded', async () => {
             })
         }
 
-        const currentChat = data.find(chat => chat.partner == to)
+        const currentChat = data.find((chat) => chat.partner == to)
         if (messagesLength != currentChat?.messages?.length) {
             updateMessages(currentChat.messages)
         }
-
     }, 500)
 
     replySend.addEventListener('click', async () => {
@@ -113,28 +112,35 @@ window.addEventListener('DOMContentLoaded', async () => {
     )
 
     // events
-    headingCompose.addEventListener('click', () => (sideTwo.style.left = '0'));
-    newMessageBack.addEventListener('click', () => (sideTwo.style.left = '-100%'));
+    headingCompose.addEventListener('click', () => (sideTwo.style.left = '0'))
+    newMessageBack.addEventListener(
+        'click',
+        () => (sideTwo.style.left = '-100%')
+    )
 
     // clear chat
     clearChat.addEventListener('click', async () => {
-        const confirm = window.confirm('Do you really want to clear the conversation?')
+        const confirm = window.confirm(
+            'Do you really want to clear the conversation?'
+        )
         if (!confirm) return
         clearChat.setAttribute('style', 'display:none;')
         const to = sessionStorage.getItem('chatId')
         if (!to) return alert('Warning!')
-        
-        const res = await (await fetch(url + '/chats', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                from: +userId,
-                to: +to,
+
+        const res = await (
+            await fetch(url + '/chats', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    from: +userId,
+                    to: +to,
+                }),
             })
-        })).json()
-        if (!res.ok) return alert(res.msg) 
+        ).json()
+        if (!res.ok) return alert(res.msg)
     })
 })
 

@@ -2,6 +2,10 @@ const url = 'https://nordgram-backend.herokuapp.com'
 let userId = sessionStorage.getItem('userId')
 const conversation = document.querySelector('.conversation')
 const conversationM = document.querySelector('#conversation')
+const headingCompose = document.querySelector('.heading-compose')
+const newMessageBack = document.querySelector('.newMessage-back')
+const sideTwo = document.querySelector('.side-two')
+const clearChat = document.querySelector('.fa-broom')
 let allUsers
 let chats
 let response
@@ -107,6 +111,31 @@ window.addEventListener('DOMContentLoaded', async () => {
     composeText.addEventListener('keyup', () =>
         filterSideBar(composeSideBar, composeText.value)
     )
+
+    // events
+    headingCompose.addEventListener('click', () => (sideTwo.style.left = '0'));
+    newMessageBack.addEventListener('click', () => (sideTwo.style.left = '-100%'));
+
+    // clear chat
+    clearChat.addEventListener('click', async () => {
+        const confirm = window.confirm('Do you really want to clear the conversation?')
+        if (!confirm) return
+        clearChat.setAttribute('style', 'display:none;')
+        const to = sessionStorage.getItem('chatId')
+        if (!to) return alert('Warning!')
+        
+        const res = await (await fetch(url + '/chats', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                from: +userId,
+                to: +to,
+            })
+        })).json()
+        if (!res.ok) return alert(res.msg) 
+    })
 })
 
 function filterSideBar(side, input) {
@@ -209,6 +238,11 @@ function createUser(data) {
 
 function updateMessages(messages) {
     messagesLength = messages.length
+    if (messagesLength == 0) {
+        clearChat.setAttribute('style', 'display:none;')
+    } else {
+        clearChat.removeAttribute('style')
+    }
     conversationM.innerHTML = null
     messages.forEach((message) => {
         let who = 'receiver'

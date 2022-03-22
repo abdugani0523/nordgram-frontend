@@ -8,9 +8,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
     signUpForm.addEventListener('submit', async (event) => {
         event.preventDefault()
-        const [firstname, lastname, username, age, password] =
-            document.querySelectorAll('#register')
+        const [firstname, lastname, username, age, password] = document.querySelectorAll('#register')
         const gender = document.querySelector('#gender')
+
+        if (username.value.includes(' ')) return alert('Invalid username!')
 
         const newUser = {
             firstname: firstname.value,

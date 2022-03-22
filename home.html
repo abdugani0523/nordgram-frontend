@@ -25,14 +25,6 @@
                                 <div class="heading-avatar-icon"></div>
                             </div>
                             <div
-                                class="col-sm-1 col-xs-1 heading-dot pull-right"
-                            >
-                                <i
-                                    class="fa-solid fa-trash-can fa-2x pull-right"
-                                    aria-hidden="true"
-                                ></i>
-                            </div>
-                            <div
                                 class="col-sm-2 col-xs-2 heading-compose pull-right"
                             >
                                 <i
@@ -102,12 +94,6 @@
 
                 <div class="col-sm-8 conversation" style="display: none">
                     <div class="row heading">
-                        <div class="col-sm-1 col-xs-1 reply-send" id="back">
-                            <i
-                                class="fa-regular fa-arrow-left fa-2x"
-                                aria-hidden="true"
-                            ></i>
-                        </div>
                         <div class="col-sm-2 col-md-1 col-xs-3 heading-avatar">
                             <div class="heading-avatar-icon">
                                 <img src="#" />
@@ -121,6 +107,7 @@
                             <i
                                 class="fa-solid fa-broom fa-2x pull-right"
                                 aria-hidden="true"
+                                style="display: none;"
                             ></i>
                         </div>
                     </div>
@@ -155,48 +142,6 @@
                 </div>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script
-            src="https://kit.fontawesome.com/70d48b53e6.js"
-            crossorigin="anonymous"
-        ></script>
-        <script src="./js/bootstrap.min.js"></script>
-        <script type="text/javascript">
-            $(function () {
-                $('.heading-compose').click(function () {
-                    $('.side-two').css({
-                        left: '0',
-                    })
-                })
-
-                $('.newMessage-back').click(function () {
-                    $('.side-two').css({
-                        left: '-100%',
-                    })
-                })
-                $(document).on("click", ".sideBar-body", function () {
-                    if($(window).width() <= 700) {
-                        $('.side').css({
-                            display: 'none',
-                        })
-                    }
-                })
-                $("#back").on("click", function () {
-                    $('.side').css({
-                        display: 'block',
-                    })
-                })
-                if($(window).width() <= 700){
-                    $('#back').css({
-                        display: 'block',
-                    })
-                } else {
-                    $('#back').css({
-                        display: 'none',
-                    })
-                }   
-            })
-        </script>
         <script src="./js/home.js"></script>
     </body>
 </html>
